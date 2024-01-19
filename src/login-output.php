@@ -8,7 +8,7 @@ require "db-connect.php";
 
 <body>
     <?php
-    unset($_SESSION['customer']);
+    unset($_SESSION['team']);
 
     
     $pdo = new PDO($connect, USER, PASS);
@@ -16,19 +16,19 @@ require "db-connect.php";
     $sql->execute([$_POST['team_name']]);
     foreach ($sql as $row) {
         
-        echo $row['team_name'],'<br>';
+        // echo $row['team_name'],'<br>';
         echo $_POST['password'],'<br>';
         echo password_hash($_POST['password'], PASSWORD_DEFAULT);
         echo '<br>';
-        echo $row['team_pass'];
+        // echo $row['team_pass'];
       
-        if (password_verify($_POST['password'], $row['team_pass']) == true) {
+        if (password_verify($_POST['password'], $row['team_pass']) ) {
             echo 'true';
         }else{
             echo 'false';
         }
 
-        if (password_verify($_POST['password'], $row['team_pass']) == true) {
+        if (password_verify($_POST['password'], $row['team_pass']) ) {
             $_SESSION['team'] = [
                 'team_id' => $row['team_id'],
                 'team_name' => $row['team_name'],
@@ -41,7 +41,7 @@ require "db-connect.php";
         }
     }
     if (isset($_SESSION['team'])) {
-        $redirect_url = 'https://aso2201195.boo.jp/zonotown/top.php';
+        $redirect_url = 'https://aso2201219.noor.jp/php2/final/top.php';
         header('Location: ' . $redirect_url);
         exit();
     } else {

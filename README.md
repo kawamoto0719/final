@@ -4,4 +4,4 @@
 クラス : SD2D
 氏名 : 河本　諒也
 システム名 : 野球選手登録システム
-url : https://aso2201219.noor.jp/php2/final/top.php
+url : https://aso2201219.noor.jp/php2/final/login_input.php
